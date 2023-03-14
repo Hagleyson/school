@@ -26,7 +26,7 @@ export default class Course extends BaseModel {
   public teacher: BelongsTo<typeof Teacher>
 
   @column()
-  public status: 'active' | 'pending' | 'running' | 'finished'
+  public status: 'active' | 'inactive'
 
   @beforeCreate()
   public static async CreateUUID(model: Course): Promise<void> {
