@@ -1,4 +1,5 @@
 export * from './user/index'
 export * from './session/index'
 export * from './recoveryPassword/index'
-export * from './Teacher/index'
+export * from './teacher/index'
+export * from './course/index'
