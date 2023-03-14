@@ -1,0 +1,17 @@
+node_modules
+build
+coverage
+.vscode
+.DS_STORE
+.env
+.eslintcache
+tmp
+.tool-versions
+.history/
+.docker/dbdata/
+.docker/redis_data/
+# yarn.lock
+.devcontainer
+.docker/dbdata
+.docker/redis_data
+secrets.json

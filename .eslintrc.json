@@ -1,0 +1,82 @@
+{
+  "extends": [
+    "plugin:adonis/typescriptApp",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "eslint-plugin-import-helpers"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    // "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "prefix": [
+          "I"
+        ],
+        "format": [
+          "PascalCase"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-undef": "off",
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "newlinesBetween": "never", // new line between groups
+        "groups": [
+          "/^@ioc/",
+          "/App/Controllers/",
+          "/App/Dtos/",
+          "/App/Exceptions/",
+          "/App/Helpers/",
+          "/App/Jobs/",
+          "/App/Mailers/",
+          "/App/Middleware/",
+          "/App/Modules/",
+          "/App/Tasks/",
+          "/App/Validators/",
+          "/App/Models/"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      }
+    }
+  }
+}
