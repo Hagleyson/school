@@ -1,0 +1,33 @@
+import NotFoundException from 'App/Exceptions/NotFoundException'
+import { Teacher } from 'App/Models'
+import { TTeacher } from '../type'
+import { Exception } from '@adonisjs/core/build/standalone'
+import moment from 'moment'
+
+export class UpdateTeacherRepository {
+  public async handle({ ctx, body }: TTeacher) {
+    const secureId = ctx.request.param('id')
+
+    try {
+      const teacher = await Teacher.query().where('secure_id', secureId).first()
+
+      if (!teacher) {
+        throw new NotFoundException('There is no Teacher for this secure id', 404, 'E_NOT_FOUND')
+      }
+      await teacher
+        .merge({
+          ...body,
+          birth_date: moment(body!.birth_date, 'DD/MM/YYYY').toDate(),
+        })
+        .save()
+
+      return ctx.response.created({ message: 'successfully updated' })
+    } catch (error) {
+      throw new Exception(
+        error.message || 'Internal Server Error',
+        error.status || 500,
+        error.code || 'E_INTERNAL_SERVER_ERROR'
+      )
+    }
+  }
+}

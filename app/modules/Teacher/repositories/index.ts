@@ -1,0 +1,5 @@
+export * from './CreateTeacherRepository'
+export * from './UpdateTeacherRepository'
+export * from './ListAllTeacherRepository'
+export * from './ListOneTeacherRepository'
+export * from './DeleteTeacherRepository'

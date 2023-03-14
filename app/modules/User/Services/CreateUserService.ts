@@ -1,9 +1,7 @@
 import { validator } from '@ioc:Adonis/Core/Validator'
-
 import { CreateUserValidator, CustomMessages } from 'App/Validators/index'
-
-import { CreateUserRepository } from './../Repositories/index'
 import { TUser } from '../type'
+import { CreateUserRepository } from './../Repositories/index'
 
 export class CreateUserService {
   public async execute({ ctx, body }: TUser) {
