@@ -1,0 +1,6 @@
+export * from './CreateCourseRepository'
+export * from './UpdateCourseRepository'
+export * from './ListAllCourseRepository'
+export * from './ListOneCourseRepository'
+export * from './DeleteCourseRepository'
+export * from './DisableCourseRepository'

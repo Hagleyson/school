@@ -9,7 +9,7 @@ export class DeleteTeacherRepository {
       const teacher = await Teacher.query().where('secure_id', secureId).first()
 
       if (!teacher) {
-        throw new NotFoundException('There is no dependent for this secure id', 404, 'E_NOT_FOUND')
+        throw new NotFoundException('There is no teacher for this secure id', 404, 'E_NOT_FOUND')
       }
 
       await teacher.delete()

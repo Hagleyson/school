@@ -3,7 +3,7 @@ import { ITeacherDTO } from 'App/Dtos'
 import {
   CreateTeacherService,
   UpdateTeacherService,
-  ListAllDependentServices,
+  ListAllTeacherServices,
   ListOneTeacherService,
   DeleteTeacherService,
 } from 'App/modules/Teacher/service/index'
@@ -12,7 +12,7 @@ export default class TeachersController {
   public async index({ request }: HttpContextContract) {
     const { page, perPage, noPaginate } = request.qs()
 
-    return new ListAllDependentServices().execute({
+    return new ListAllTeacherServices().execute({
       page: page ?? 1,
       perPage: perPage ?? 10,
       noPaginate: noPaginate ?? false,

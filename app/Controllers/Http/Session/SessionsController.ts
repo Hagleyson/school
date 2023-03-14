@@ -9,7 +9,6 @@ export default class SessionsController {
 
   public async destroy({ response, auth }: HttpContextContract) {
     const teste = await auth.use('api').revoke()
-    console.log(teste)
     return response.ok({ teste })
   }
 }

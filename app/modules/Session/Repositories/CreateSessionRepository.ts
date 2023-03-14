@@ -7,7 +7,7 @@ export class CreateSessionRepository {
     try {
       const { token, type, expiresAt, user } = await ctx.auth
         .use('api')
-        .attempt(email, password, { expiresIn: '2hours' })
+        .attempt(email, password, { expiresIn: '10hours' })
 
       const { secure_id, name, email: newEmail, phone } = user
 
