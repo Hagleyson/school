@@ -1,4 +1,5 @@
-import { BaseModel, beforeCreate, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, HasMany, beforeCreate, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Course from './Course'
 import { DateTime } from 'luxon'
 import { v4 as uuidV4 } from 'uuid'
 
@@ -23,6 +24,9 @@ export default class Teacher extends BaseModel {
 
   @column()
   public birth_date: Date
+
+  @hasMany(() => Course, { foreignKey: 'family_id' })
+  public course: HasMany<typeof Course>
 
   @beforeCreate()
   public static async CreateUUID(model: Teacher): Promise<void> {
