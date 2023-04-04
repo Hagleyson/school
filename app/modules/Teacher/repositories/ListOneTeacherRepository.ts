@@ -13,7 +13,14 @@ export class ListOneTeacherRepository {
         throw new NotFoundException('There is no dependent for this secure id', 404, 'E_NOT_FOUND')
       }
 
-      return teacher
+      return {
+        secure_id: teacher.secure_id,
+        name: teacher.name,
+        last_name: teacher.last_name,
+        cpf: teacher.cpf,
+        training: teacher.training,
+        birth_date: teacher.birth_date,
+      }
     } catch (error) {
       throw new Exception(
         error.message || 'Internal Server Error',
