@@ -25,7 +25,7 @@ export default class Teacher extends BaseModel {
   @column()
   public birth_date: Date
 
-  @hasMany(() => Course, { foreignKey: 'family_id' })
+  @hasMany(() => Course, { foreignKey: 'teacher_id' })
   public course: HasMany<typeof Course>
 
   @beforeCreate()
