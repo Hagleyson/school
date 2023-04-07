@@ -9,7 +9,7 @@ export class ListAllCourseRepository {
         return await Courser.query().select('secure_id', 'name')
       }
 
-      return await Courser.query().paginate(options.page, options.perPage)
+      return await Courser.query().preload('teacher').paginate(options.page, options.perPage)
     } catch (error) {
       throw new Exception(
         error.message || 'Internal Server Error',
