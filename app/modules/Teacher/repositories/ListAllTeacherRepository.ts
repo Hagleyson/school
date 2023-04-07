@@ -9,7 +9,7 @@ export class ListAllTeacherRepository {
         return await Teacher.query().select('secure_id', 'name')
       }
 
-      return await Teacher.query().paginate(options.page, options.perPage)
+      return await Teacher.query().orderBy('id', 'desc').paginate(options.page, options.perPage)
     } catch (error) {
       throw new Exception(
         error.message || 'Internal Server Error',
