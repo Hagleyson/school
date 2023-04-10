@@ -11,7 +11,13 @@ export class ListOneCourseRepository {
         throw new NotFoundException('There is no dependent for this secure id', 404, 'E_NOT_FOUND')
       }
 
-      return course
+      return {
+        secure_id: course.secure_id,
+        name: course.name,
+        target_audience: course.target_audience,
+        content: course.content,
+        teacher_secure_id: course.teacher.secure_id,
+      }
     } catch (error) {
       throw new Exception(
         error.message || 'Internal Server Error',
