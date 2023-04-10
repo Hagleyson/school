@@ -16,7 +16,7 @@ export class DisableCourseRepository {
 
       course
         .merge({
-          status: 'inactive',
+          status: course.status === 'active' ? 'inactive' : 'active',
         })
         .save()
 
