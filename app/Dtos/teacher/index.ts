@@ -4,4 +4,10 @@ export interface ITeacherDTO {
   cpf: string
   training: string
   birth_date: string
+  address: {
+    street: string
+    number: string
+    neighborhood: string
+    complement?: string
+  }
 }
