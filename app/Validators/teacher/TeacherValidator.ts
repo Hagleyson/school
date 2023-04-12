@@ -18,6 +18,12 @@ export class TeacherValidator {
     scholarship: schema.string(),
     phone: schema.string(),
     alternative_phone: schema.string(),
+    address: schema.object().members({
+      street: schema.string(),
+      number: schema.string(),
+      neighborhood: schema.string(),
+      complement: schema.string.optional(),
+    }),
   })
 
   public messages: CustomMessages = {}
