@@ -11,7 +11,6 @@ import {
 export default class CoursesController {
   public async index({ request }: HttpContextContract) {
     const { page, perPage, noPaginate } = request.qs()
-
     return new ListAllCourseService().execute({
       page: page ?? 1,
       perPage: perPage ?? 10,

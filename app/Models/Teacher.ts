@@ -25,6 +25,30 @@ export default class Teacher extends BaseModel {
   @column()
   public birth_date: Date
 
+  @column()
+  public email: string
+
+  @column()
+  public alternative_email: string
+
+  @column()
+  public rg: string
+
+  @column()
+  public gender: string
+
+  @column()
+  public naturalness: string
+
+  @column()
+  public scholarship: string
+
+  @column()
+  public phone: string
+
+  @column()
+  public alternative_phone: string
+
   @hasMany(() => Course, { foreignKey: 'teacher_id' })
   public course: HasMany<typeof Course>
 
