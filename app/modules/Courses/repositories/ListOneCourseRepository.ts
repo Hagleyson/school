@@ -1,6 +1,7 @@
 import NotFoundException from 'App/Exceptions/NotFoundException'
 import { Courser } from 'App/Models'
 import { Exception } from '@adonisjs/core/build/standalone'
+import moment from 'moment'
 
 export class ListOneCourseRepository {
   public async handle(secure_id: string) {
@@ -17,6 +18,10 @@ export class ListOneCourseRepository {
         target_audience: course.target_audience,
         content: course.content,
         teacher_secure_id: course.teacher.secure_id,
+        start_date: moment(course.start_date).utc().format('DD/MM/YYYY'),
+        end_date: moment(course.end_date).utc().format('DD/MM/YYYY'),
+        enroll_start_date: moment(course.enroll_start_date).utc().format('DD/MM/YYYY'),
+        enroll_end_date: moment(course.enroll_end_date).utc().format('DD/MM/YYYY'),
       }
     } catch (error) {
       throw new Exception(
