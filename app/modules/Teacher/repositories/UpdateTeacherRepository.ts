@@ -32,6 +32,8 @@ export class UpdateTeacherRepository {
 
       return ctx.response.created({ message: 'successfully updated' })
     } catch (error) {
+      await trx.rollback()
+
       throw new Exception(
         error.message || 'Internal Server Error',
         error.status || 500,

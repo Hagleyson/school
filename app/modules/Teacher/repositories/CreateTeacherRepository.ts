@@ -21,6 +21,8 @@ export class CreateTeacherRepository {
 
       return { message: 'Teacher created successfully' }
     } catch (error) {
+      await trx.rollback()
+
       throw new Exception(
         error.message || 'Internal Server Error',
         error.status || 500,

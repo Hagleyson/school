@@ -8,7 +8,6 @@ export class UpdateUserValidator {
     name: schema.string.optional({}, [rules.minLength(3)]),
     email: schema.string.optional({}, [rules.email()]),
     phone: schema.string(),
-    access_level: schema.enum(['ADMIN', 'MAINTAIN', 'VISITOR', 'WRITER'] as const, []),
   })
 
   public messages: CustomMessages = {}

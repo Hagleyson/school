@@ -9,7 +9,6 @@ export class CreateUserValidator {
     password: schema.string(),
     email: schema.string({}, [rules.email()]),
     phone: schema.string({}),
-    access_level: schema.enum(['ADMIN', 'MAINTAIN', 'VISITOR', 'WRITER'] as const, []),
   })
 
   public messages: CustomMessages = {}

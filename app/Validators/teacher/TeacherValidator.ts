@@ -10,8 +10,11 @@ export class TeacherValidator {
     cpf: schema.string(),
     training: schema.string(),
     birth_date: schema.date({ format: 'dd/mm/yyyy' }),
-    email: schema.string({}, [rules.email()]),
-    alternative_email: schema.string({}, [rules.email()]),
+    email: schema.string({}, [rules.email(), rules.unique({ table: 'teachers', column: 'email' })]),
+    alternative_email: schema.string({}, [
+      rules.email(),
+      rules.unique({ table: 'teachers', column: 'alternative_email' }),
+    ]),
     rg: schema.string(),
     gender: schema.string(),
     naturalness: schema.string(),
