@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 
-export class TeacherValidator {
+export class CreateTeacherValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({

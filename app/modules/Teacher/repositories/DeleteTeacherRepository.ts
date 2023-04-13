@@ -10,7 +10,6 @@ export class DeleteTeacherRepository {
       if (!teacher) {
         throw new NotFoundException('There is no teacher for this secure id', 404, 'E_NOT_FOUND')
       }
-      console.log(teacher?.toJSON())
 
       if (teacher?.course.length > 0) {
         throw new NotFoundException('this teacher is linked to a course', 422, 'E_USER_LINKED')

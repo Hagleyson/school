@@ -1,11 +1,12 @@
 import { validator } from '@ioc:Adonis/Core/Validator'
-import { TeacherValidator, CustomMessages } from 'App/Validators/index'
+import { UpdateTeacherValidator, CustomMessages } from 'App/Validators/index'
 import { UpdateTeacherRepository } from '../repositories/index'
 import { TTeacher } from '../type'
 
 export class UpdateTeacherService {
   public async execute({ ctx, body }: TTeacher) {
-    const teacherValidator = new TeacherValidator(ctx)
+    const teacherValidator = new UpdateTeacherValidator(ctx)
+
     await validator.validate({
       schema: teacherValidator.schema,
       data: body,

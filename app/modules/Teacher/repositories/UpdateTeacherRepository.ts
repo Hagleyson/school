@@ -12,6 +12,7 @@ export class UpdateTeacherRepository {
 
     try {
       const address = body?.address
+
       const teacher = await Teacher.query().where('secure_id', secureId).preload('address').first()
 
       if (!teacher) {
